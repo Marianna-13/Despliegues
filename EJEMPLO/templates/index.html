@@ -5,145 +5,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-<style>
-    * {margin : 0; padding: 0; box-sizing: border-box; }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        bady {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0f0;
+            padding: 20px; /*espacio interno del contenedor*/
+        }
 
-    body{
-        font-family:Arial, sans-serif;
-        background: #f0f0f0;
-        padding: 20 px; /*espacio interno del contenedor*/
+        .container {
+            max-width: 600; /*ancho maximo del formulario */
+            margin: 0 auto; /*centrqar el contenedor */
+            background: white; /*fondo blando0 del conendor*/
+            padding: 30px; /*espacios internos */
+            border-radius: 10px; /*bordes redondeados */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0); /*sobra suave */
+        }
 
-    }
+        /* estilo del titulo principla */
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
 
-    .container {
-        max-width: 600 /*ancho maximo de la pagina*/;
-        margin:0 auto; /*centrar el contenedor */
-        background: white; /*fondo blanco del contenedor*/
-        padding: 30px; /*espacios internos*/
-        border-radius: 10px; /*bordes redondeados*/
-        box-shadow: 0 2px 10px rgba(0,0,0,0); /*sombra suave*/
-        
-    }
+        /*esstilos de subtitulos  (Formulario de contacto)*/
+        h2 {
+            color: #555;
+            margin-bottom: 10px;
+        }
 
+        /*parro inforativo */
+        p {
+            color: #666;
+            line-height: 1.6; /*espacio entre lineas*/
+            margin-bottom: 10px;
+        }
 
-     /*estilo del tipo principal*/
-     h1{
-    color: #333;
-    margin-bottom: 10px;
-     }
+        /*etiquetas de los campos del formulario */
+        label {
+            display: block; /*hace que ocupe una linea completa */
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold; /*negrita*/
+        }
 
+        /*campo de trxto y areas del mensaje */
+        input, textarea {
+            width: 100%; /*ocupa todo el ancho disponible */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px; /*tamaño del trexto*/
+        }
 
-     /*estilo subtitulo (formulario de contacto)*/
-     h2 { 
-    color: #222;
-    margin-bottom: 10px;
-     }
+        /*definir el tamaño minimo del area del texto */
+        textarea {
+            min-height: 100px;
+            resize: vertical; /*me permite agregar los tamañanos verticalmente */
+        }
 
-     /*parrafo informativo*/
-     p {
-        color: antiquewhite;
-        line-height: 1.6; /*espacio entre lineas*/
-        margin-bottom: 10px;
-     }
+        /*estilo del boton de envia */
+        button {
+            width: 100px;
+            padding: 12px;
+            background: #007bff; /*Azzul principal */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer; /*muestra un diseño de mano al pasar con el mouse */
+        }
 
-     /*etiquetas de los campos de formulario*/
+        /* Estilos para los mensajes de alerta */
+        .message {
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            display: none;
+            font-weight: bold;
+        }
 
-     label{
-        display:  block; /*hace que ocupe la linea completa*/
-        margin-bottom: 5px;
-        color: #555;
-        font-weight: bold ; /*negrita*/
-     }
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
 
-     /*campo de texto y areas del mensaje*/
-     input, textarea{
-        width: 100%; /*ocupa todo el ancho disponible*/
-        padding: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 14px; /*tamaño del texto*/
-     }
-
-     /*definir el tamaño minimo del area del texto*/
-     textarea{
-        min-height: 100px;
-        resize: vertical; /*me permite agregar los tamaños verticalmente*/
-     }
-
-     /*estio del boton de envia*/
-     button{ 
-        width: 100px;
-        padding: 12px;
-        background: #007bff; /*azul principal*/
-        color:  white ;
-        border: none ;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer ; /*muestra un diseño hecho a mano apasar con el mouse s*/
-     }
-     
-      
-</style>
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
 </head>
 <body>
-    <!--=======================CONTENIDO DE LA PAGINA===============-->
-    <!--AQUI ESTA LA INFORMACION DE CONTACTO Y LOS TEXTOS INFROMATIVOS-->
+    <!--=================CONTENIDO DE LA PAGINA ======================-->
+    <!--AQUI ETA LA INFORMACION DE CONTACTO Y LOS TEXTOS INFORMATIVOS -->
 
-    <div class = "container">
-        <!--tirulo principa de la pagina-->
+    <div class="container">
+        <!--titulo principa de la pagina -->
         <h1>Contactos</h1>
 
-        <p>completar el formulario y nos pondremos en contacto</p>
+        <p>Completar el formulario y nos pondremos en contacto</p>
 
         <h2>Formulario de contacto</h2>
 
-        <div id="MensajeAlerta" class="menssage"></div>
+        <div id="mensajeAlerta" class="menssage"></div>
 
         <form id="contactForm">
             <label for="nombre">Nombre *</label>
-            <input type="text" id="nombre" name="nombre"required>
+            <input type="text" id="nombre" name="nombre" required>
 
-            <label for="correo">Correo*</label>
-            <input type="email" id="correo" name="correo"required>
+            <label for="correo">Correo *</label>
+            <input type="email" id="correo" name="correo" required>
 
-            <label for="mensajeTexto">Mensaje *</label>
-            <textarea name="mensajeTexto" id="mensaje" name="mensaje"></textarea>
+            <label for="mensajTexto">Mensaje *</label>
+            <textarea type="mensajTexto" id="mensaje" name="mensjae"></textarea>
 
-            <br><button type="submit">Enviar</button>
-
+            <button type="submit">Enviar</button>
         </form>
     </div>
 
-<script>
-    /*================LOGICA DE FORMULARIO DE JAVASCRIPT===============
-    este bloque le controla lo que pasa cuando el usuario envia el formulario
-    Se encarga de mandar los datos al servidor y mostrar los mensajes*/
+    <script>
+        /*===========================LOGICA DEL FORMULARIO EN JAVASCRIPT=======================
+        este bloque de controla lo que pasa cuando el usuario envia el formulario.
+        Se encarga de mandar los datos al servidor y mostrar los mensajes */
 
-    const fformData= {
-        nombre: document.getElementById('nombre').evalue,
-        correo: document.getElementById('correo').evalue,
-        mensaje: document.getElementById('mensajeTexto').evalue
-    }
+        // Capturar el evento de envío del formulario
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault(); // Prevenir el envío tradicional del formulario
 
-    console.log('datos a enviar: ', ForData); /*muestra en la consola los datos a enviar*/
+            // Recopilar los datos del formulario
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                correo: document.getElementById('correo').value,
+                mensaje: document.getElementById('mensaje').value
+            }
 
-    try{
-        /*ENVIA LOS DATOS AL SERVIDOR */
-        const response = await fetch ('/contacto',{
-            method: 'POST',
-            headers: {'Content-Type' : 'application/json'},
-            body: JSON.stringfy(FormData)
-          });
+            console.log('datos a enviar: ', formData); /*muestra en la consola los datos a enviar */
 
-        //Convertir la ruta de respuesta del servidor JSON
-        const result= await response.json();
+            try {
+                /*ENVIAR LOS DATOS AL SERVIDOR (RUTA /contacto)*/
+                const response = await fetch('/contacto', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(formData)
+                });
 
-        // Seleciono rl div donde se mostrara en mensaje de respuesta
-        const mensajeDiv= document.getElementById('mensajeAlerta');
-    }
+                //Convertir la respuesta del servidor en JSON 
+                const result = await response.json();
 
-</script>
+                // Selecciona el div donde se mostrará el mensaje
+                const mensajeDiv = document.getElementById('mensajeAlerta');
+
+                // Si la respuesta del servidor es correcta (código 200 o 201)
+                if (response.ok) {
+                    mensajeDiv.className = 'message success'; // Usa estilo verde
+                    mensajeDiv.textContent = '' + result.mensaje; // Muestra mensaje de éxito
+                    mensajeDiv.style.display = 'block'; // Hace visible el mensaje
+                    document.getElementById('contactForm').reset(); // Limpia los campos del formulario
+                } else {
+                    // Si hay error, muestra el mensaje en rojo
+                    mensajeDiv.className = 'message error';
+                    mensajeDiv.textContent = ' ' + result.error;
+                    mensajeDiv.style.display = 'block';
+                }
+
+                // Oculta el mensaje después de 5 segundos
+                setTimeout(() => { mensajeDiv.style.display = 'none'; }, 5000);
+            } catch (error) {
+                // Si el servidor no responde o hay fallo de conexión
+                const mensajeDiv = document.getElementById('mensajeAlerta');
+                mensajeDiv.className = 'message error';
+                mensajeDiv.textContent = ' Error de conexión';
+                mensajeDiv.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
