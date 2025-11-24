@@ -9,9 +9,9 @@ app = Flask(__name__)
 
 DB_CONFIG = {
     'host': 'localhost',
-    'database': 'diseño',
+    'database': 'datos',
     'user': 'postgres',
-    'password': 'S0lut3c2012*',
+    'password': '123456',
     'port': 5432
 }
 
